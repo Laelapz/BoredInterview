@@ -5,22 +5,28 @@ public class HealthHandler : MonoBehaviour, IDamageable
 {
     public int MaxLife = 1;
     public int CurrentLife = 1;
+
+    [SerializeField] private Sprite[] sprites;
+
     private bool _canDamage = true;
     private bool _isDead = false;
 
     private BoxCollider2D _myCollider;
+    private SpriteRenderer _myRenderer;
 
     [SerializeField] private ParticleSystem _particleSystem;
 
     private void Awake()
     {
         _myCollider = GetComponentInChildren<BoxCollider2D>();
+        _myRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void Hit()
     {
         if (!_canDamage) return;
         CurrentLife -= 1;
+        _myRenderer.sprite = sprites[MaxLife - CurrentLife];
         //call update hud
         StartCoroutine(InvulnerabilityTime());
         if (CurrentLife <= 0) Die();
