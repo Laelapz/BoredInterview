@@ -36,7 +36,7 @@ public class AttackHandler : MonoBehaviour
         if (!_canAttack) return;
 
         StartCoroutine(ReloadShoot());
-        _FrontalCannon.Shoot(_bulletPrefab);
+        _FrontalCannon.Shoot("PlayerBullet");
     }
 
     public void ShootLeftSide()
@@ -44,7 +44,7 @@ public class AttackHandler : MonoBehaviour
         if (!_canAttack) return;
 
         StartCoroutine(ReloadShoot());
-        _LeftSideCannon.Shoot(_bulletPrefab);
+        _LeftSideCannon.Shoot("PlayerBullet");
     }
 
     public void ShootRightSide()
@@ -52,7 +52,7 @@ public class AttackHandler : MonoBehaviour
         if (!_canAttack) return;
 
         StartCoroutine(ReloadShoot());
-        _RightSideCannon.Shoot(_bulletPrefab);
+        _RightSideCannon.Shoot("PlayerBullet");
     }
 
     private IEnumerator ReloadShoot()

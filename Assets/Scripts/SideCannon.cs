@@ -7,11 +7,12 @@ public class SideCannon : MonoBehaviour
     [SerializeField] private Transform[] cannonsTransform;
     public bool isLeft = true;
 
-    public void Shoot(GameObject shootPrefab)
+    public void Shoot(string Tag)
     {
         foreach (Transform cannon in cannonsTransform)
         {
-            Instantiate(shootPrefab, cannon.position, cannon.rotation);
+            EnemySpawner.Instance.SpawnFromPool(Tag, cannon.position, cannon.rotation);
+            //Instantiate(shootPrefab, cannon.position, cannon.rotation);
         }
     }
 }

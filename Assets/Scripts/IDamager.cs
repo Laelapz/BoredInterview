@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IDamager
 {
-    public void Shoot(GameObject shootPrefab);
+    public void Shoot(string Tag);
 }

@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class HealthHandler : MonoBehaviour, IDamageable
 {
@@ -13,6 +15,7 @@ public class HealthHandler : MonoBehaviour, IDamageable
 
     private BoxCollider2D _myCollider;
     private SpriteRenderer _myRenderer;
+    private Slider _slider;
 
     [SerializeField] private ParticleSystem _particleSystem;
 
@@ -20,16 +23,39 @@ public class HealthHandler : MonoBehaviour, IDamageable
     {
         _myCollider = GetComponentInChildren<BoxCollider2D>();
         _myRenderer = GetComponentInChildren<SpriteRenderer>();
+        _slider = GetComponentInChildren<Slider>();
+    }
+
+    public void ResetStatus()
+    {
+        CurrentLife = MaxLife;
+        UpdateSlider();
+        UpdateBoatSprite();
+        _isDead = false;
+        _canDamage = true;
+        _myCollider.enabled = true;
     }
 
     public void Hit()
     {
         if (!_canDamage) return;
         CurrentLife -= 1;
-        _myRenderer.sprite = sprites[MaxLife - CurrentLife];
-        //call update hud
+
+        UpdateSlider();
+        UpdateBoatSprite();
         StartCoroutine(InvulnerabilityTime());
         if (CurrentLife <= 0) Die();
+    }
+
+    public void UpdateBoatSprite()
+    {
+        _myRenderer.sprite = sprites[MaxLife - CurrentLife];
+    }
+
+    public void UpdateSlider()
+    {
+        _slider.maxValue = MaxLife;
+        _slider.value = CurrentLife;
     }
 
     public void Die()
@@ -50,7 +76,7 @@ public class HealthHandler : MonoBehaviour, IDamageable
     private IEnumerator DestroyAfter()
     {
         yield return new WaitForSeconds(1.5f);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private IEnumerator InvulnerabilityTime()

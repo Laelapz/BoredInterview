@@ -25,6 +25,17 @@ public class EnemyIA : MonoBehaviour
         _healthHandler = GetComponentInChildren<HealthHandler>();
     }
 
+    private void OnEnable()
+    {
+        _canAttack = true;
+        _healthHandler.ResetStatus();
+    }
+
+    private void OnDisable()
+    {
+        EnemySpawner.Instance.DeSpawnEnemy();   
+    }
+
     private void Start()
     {
         _boatBody = transform.GetChild(0);
