@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class HealthHandler : MonoBehaviour, IDamageable
 {
+    
     public int MaxLife = 1;
     public int CurrentLife = 1;
-
-    [SerializeField] private Sprite[] sprites;
+    public UnityAction onDead;
 
     private bool _canDamage = true;
     private bool _isDead = false;
@@ -18,6 +18,7 @@ public class HealthHandler : MonoBehaviour, IDamageable
     private Slider _slider;
 
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private Sprite[] sprites;
 
     private void Awake()
     {
@@ -77,6 +78,7 @@ public class HealthHandler : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(false);
+        if(onDead != null) onDead.Invoke();
     }
 
     private IEnumerator InvulnerabilityTime()

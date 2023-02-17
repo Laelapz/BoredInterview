@@ -66,7 +66,6 @@ public class EnemySpawner : MonoBehaviour
         objectToSpawn.transform.SetPositionAndRotation(position, rotation);
 
         _poolOfEnemies[tag].Enqueue(objectToSpawn);
-        _numberOfEnemiesInstantiated += 1;
         return objectToSpawn;
     }
 
@@ -74,7 +73,17 @@ public class EnemySpawner : MonoBehaviour
     {
         if(_numberOfEnemiesInstantiated < 10)
         {
-            Vector3 pos = DecideSideToSpawn();
+            Vector3 pos;
+            RaycastHit2D[] hits;
+
+            do
+            {
+                pos = DecideSideToSpawn();
+                hits = Physics2D.CircleCastAll(pos, 0.1f, Vector2.zero);
+
+            }
+            while (hits.Length > 0);
+
             pos.z = 0;
 
             if (Random.Range(0, 3) > 1)
@@ -85,7 +94,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 SpawnFromPool("Shooter", pos, Quaternion.identity);
             }
-        }   
+
+            _numberOfEnemiesInstantiated += 1;
+        }
     }
 
     private Vector3 DecideSideToSpawn()
@@ -95,6 +106,7 @@ public class EnemySpawner : MonoBehaviour
             if (Random.Range(0, 3) > 1)
             {
                 return _camera.ViewportToWorldPoint(new Vector3(1.1f, Random.Range(0, 1.1f), 0));
+                
             }
             else
             {
