@@ -8,9 +8,9 @@ public class HealthHandler : MonoBehaviour, IDamageable
     
     public int MaxLife = 1;
     public int CurrentLife = 1;
-    public UnityAction onDead;
+    public UnityAction OnDead;
 
-    private bool _canDamage = true;
+    public bool CanDamage = true;
     private bool _isDead = false;
 
     private BoxCollider2D _myCollider;
@@ -18,7 +18,9 @@ public class HealthHandler : MonoBehaviour, IDamageable
     private Slider _slider;
 
     [SerializeField] private ParticleSystem _particleSystem;
-    [SerializeField] private Sprite[] sprites;
+    [SerializeField] private Sprite[] _sprites;
+    [SerializeField] private UnityEvent _onDamage;
+    public UnityEvent _onDead;
 
     private void Awake()
     {
@@ -33,14 +35,16 @@ public class HealthHandler : MonoBehaviour, IDamageable
         UpdateSlider();
         UpdateBoatSprite();
         _isDead = false;
-        _canDamage = true;
+        CanDamage = true;
         _myCollider.enabled = true;
     }
 
     public void Hit()
     {
-        if (!_canDamage) return;
+        if (!CanDamage) return;
         CurrentLife -= 1;
+
+        if (_onDamage != null) _onDamage.Invoke();
 
         UpdateSlider();
         UpdateBoatSprite();
@@ -50,7 +54,7 @@ public class HealthHandler : MonoBehaviour, IDamageable
 
     public void UpdateBoatSprite()
     {
-        _myRenderer.sprite = sprites[MaxLife - CurrentLife];
+        _myRenderer.sprite = _sprites[MaxLife - CurrentLife];
     }
 
     public void UpdateSlider()
@@ -62,7 +66,7 @@ public class HealthHandler : MonoBehaviour, IDamageable
     public void Die()
     {
         _myCollider.enabled = false;
-        _canDamage = false;
+        CanDamage = false;
         _isDead = true;
         _particleSystem.Play();
         StopAllCoroutines();
@@ -77,14 +81,15 @@ public class HealthHandler : MonoBehaviour, IDamageable
     private IEnumerator DestroyAfter()
     {
         yield return new WaitForSeconds(1.5f);
+        _onDead.Invoke();
         gameObject.SetActive(false);
-        if(onDead != null) onDead.Invoke();
+        if(OnDead != null) OnDead.Invoke();
     }
 
     private IEnumerator InvulnerabilityTime()
     {
-        _canDamage = false;
+        CanDamage = false;
         yield return new WaitForSeconds(0.5f);
-        _canDamage = true;
+        CanDamage = true;
     }
 }

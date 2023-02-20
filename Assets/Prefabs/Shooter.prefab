@@ -88,6 +88,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: 194650e8e6e637349a78b59d1e7803af, type: 3}
@@ -103,6 +107,18 @@ PrefabInstance:
       propertyPath: sprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: cac3d098ad7aa9e41a418829e1e9a420, type: 3}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 194650e8e6e637349a78b59d1e7803af, type: 3}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: bd29147cb54556044b1caed3762304ef, type: 3}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1468f49a182cca848a0da1c288806363, type: 3}
     - target: {fileID: 7108798649899943580, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -117,6 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+--- !u!82 &2002862542028886799 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7324002562683788886, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+  m_PrefabInstance: {fileID: 9110655980378525017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3502614833265609978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5689248070287458723, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
@@ -165,6 +186,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonsTransform:
   - {fileID: 3502614834028398764}
+  _onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2002862542028886799}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: a01bbcc9a20c99341b9945a1f95de368, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &3502614834028398764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5689248070916031989, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}

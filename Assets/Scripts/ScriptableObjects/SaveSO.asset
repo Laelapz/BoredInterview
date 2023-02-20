@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f9e9ce22198df49a671583d5ef17db, type: 3}
   m_Name: SaveSO
   m_EditorClassIdentifier: 
-  MatchTime: 0
-  TimeBetweenEnemySpawn: 0
-  hasMusic: 0
+  MatchTime: 49
+  TimeBetweenEnemySpawn: 1.5
+  MaxEnemiesOnScreen: 10
+  hasMusic: 1

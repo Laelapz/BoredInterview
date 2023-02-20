@@ -375,6 +375,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: aea7d6503425c474fa9f2e7310024a12, type: 3}
@@ -388,6 +392,22 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 9e56414c58010464b9a7b01f237fba8f, type: 3}
     - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
       propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: a5a9eece90f938a4d8ebca826956c113, type: 3}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: aea7d6503425c474fa9f2e7310024a12, type: 3}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: ffb252707bb59db47b2f3072502bc84b, type: 3}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e56414c58010464b9a7b01f237fba8f, type: 3}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: _sprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: a5a9eece90f938a4d8ebca826956c113, type: 3}
     - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
@@ -416,6 +436,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+--- !u!82 &748603390192034309 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7324002562683788886, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+  m_PrefabInstance: {fileID: 8054555270147079251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2392470977660008870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5689248070916031989, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
@@ -458,6 +483,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonsTransform:
   - {fileID: 2392470977660008870}
+  _onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 748603390192034309}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: a01bbcc9a20c99341b9945a1f95de368, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7018855409897908962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +528,21 @@ MonoBehaviour:
   - {fileID: 3198726269189248508}
   - {fileID: 6299679347140596218}
   - {fileID: 3607715776835319403}
+  _onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 748603390192034309}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: a01bbcc9a20c99341b9945a1f95de368, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isLeft: 1
 --- !u!114 &9139612809319257498
 MonoBehaviour:
@@ -505,4 +560,19 @@ MonoBehaviour:
   - {fileID: 1311929242793430005}
   - {fileID: 9162395356609891322}
   - {fileID: 3968771548435956145}
+  _onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 748603390192034309}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: a01bbcc9a20c99341b9945a1f95de368, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isLeft: 0

@@ -5,5 +5,6 @@ public class SaveScriptableObject : ScriptableObject
 {
     public float MatchTime;
     public float TimeBetweenEnemySpawn;
-    public bool hasMusic;
+    public int MaxEnemiesOnScreen;
+    public bool HasMusic;
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -8,6 +9,11 @@ public class EnemySpawner : MonoBehaviour
 
     private Camera _camera;
     private int _numberOfEnemiesInstantiated;
+    private float _currentTimeWaitedBetweenSpawn = 0f;
+    private GameManager _gameManager;
+
+    public float TimeBetweenSpawn = 0.3f;
+    public int MaxEnemiesOnScreen = 10;
 
     [System.Serializable]
     public class Pool
@@ -24,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        _gameManager = GetComponent<GameManager>();
     }
 
     #endregion Singleton
@@ -71,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if(_numberOfEnemiesInstantiated < 10)
+        if(_numberOfEnemiesInstantiated < MaxEnemiesOnScreen && _currentTimeWaitedBetweenSpawn <= 0)
         {
             Vector3 pos;
             RaycastHit2D[] hits;
@@ -86,17 +93,25 @@ public class EnemySpawner : MonoBehaviour
 
             pos.z = 0;
 
+            GameObject enemyGameObject;
+
             if (Random.Range(0, 3) > 1)
             {
-                SpawnFromPool("Chaser", pos, Quaternion.identity);
+                enemyGameObject = enemyGameObject = SpawnFromPool("Chaser", pos, Quaternion.identity);
             }
             else
             {
-                SpawnFromPool("Shooter", pos, Quaternion.identity);
+                enemyGameObject = SpawnFromPool("Shooter", pos, Quaternion.identity);
             }
 
+            //enemyGameObject.GetComponent<HealthHandler>().OnDead += _gameManager.IncreasePoints;
+            enemyGameObject.GetComponent<HealthHandler>()._onDead.AddListener(_gameManager.IncreasePoints);
+
             _numberOfEnemiesInstantiated += 1;
+            _currentTimeWaitedBetweenSpawn = TimeBetweenSpawn;
         }
+
+        _currentTimeWaitedBetweenSpawn -= Time.deltaTime;
     }
 
     private Vector3 DecideSideToSpawn()
