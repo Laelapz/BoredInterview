@@ -7,7 +7,7 @@ public class FollowTargetInMap : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private Vector3 _offset;
     
-    void Update()
+    void FixedUpdate()
     {
         if (_target == null) return;
         

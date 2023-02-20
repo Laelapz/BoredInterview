@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     private void ShowMenu()
     {
         StopAllCoroutines();
+        _gameMusic.volume = _gameMusic.volume / 2;
         Time.timeScale = 0.3f;
         _hasGameEnd = true;
         _pointsText.text = _points + " Points";

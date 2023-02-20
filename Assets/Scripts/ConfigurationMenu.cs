@@ -16,7 +16,6 @@ public class ConfigurationMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _maxEnemiesOnScreenText;
     [SerializeField] Toggle _musicToggle;
 
-
     public void ReloadConfigurations()
     {
         _matchTimerSlider.value = _saveScriptableObject.MatchTime;

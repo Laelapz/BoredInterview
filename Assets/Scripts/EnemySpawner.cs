@@ -121,7 +121,6 @@ public class EnemySpawner : MonoBehaviour
             if (Random.Range(0, 3) > 1)
             {
                 return _camera.ViewportToWorldPoint(new Vector3(1.1f, Random.Range(0, 1.1f), 0));
-                
             }
             else
             {
