@@ -6,11 +6,13 @@ namespace Ship.Units.Health
 {
     public abstract class Damageable : MonoBehaviour
     {
-        protected int maxLife = 1;
+        public int maxLife = 1;
         protected int currentLife = 1;
         protected bool isDead = false;
         public bool CanDamage = true;
-        public UnityEvent OnDead;
+        public UnityEvent OnDead; 
+        public UnityEvent OnExplode;
+
 
         [SerializeField] private UnityEvent _onDamage;
 
@@ -36,6 +38,7 @@ namespace Ship.Units.Health
 
         private IEnumerator DestroyAfter()
         {
+            if (OnExplode != null) OnExplode.Invoke();
             yield return new WaitForSeconds(1.5f);
             gameObject.SetActive(false);
             if (OnDead != null) OnDead.Invoke();

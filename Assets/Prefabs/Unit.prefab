@@ -380,8 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f802e415b8944c44bebd09c6d3d0353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLife: 1
-  CurrentLife: 1
+  maxLife: 1
   CanDamage: 1
   OnDead:
     m_PersistentCalls:
@@ -401,6 +400,21 @@ MonoBehaviour:
       - m_Target: {fileID: 6701384324557268899}
         m_TargetAssemblyTypeName: HealthHandler, Assembly-CSharp
         m_MethodName: SetDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnExplode:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6351560774746743268}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

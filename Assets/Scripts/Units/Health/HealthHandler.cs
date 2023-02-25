@@ -19,6 +19,11 @@ namespace Ship.Units.Health
             _slider = GetComponentInChildren<Slider>();
         }
 
+        private void Start()
+        {
+            currentLife = maxLife;
+        }
+
         public void ResetStatus()
         {
             currentLife = maxLife;

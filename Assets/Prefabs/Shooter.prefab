@@ -80,6 +80,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
+      propertyPath: maxLife
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701384324557268899, guid: 15dc3de60ba1d45448dc275caf0e1b41, type: 3}
       propertyPath: CurrentLife
       value: 2
       objectReference: {fileID: 0}
