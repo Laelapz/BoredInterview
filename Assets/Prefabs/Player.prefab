@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641830170adb05244b5617d132b3da5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonsTransform:
+  _cannonsTransform:
   - {fileID: 2392470977660008870}
   _onShoot:
     m_PersistentCalls:
